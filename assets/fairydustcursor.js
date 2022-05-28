@@ -187,4 +187,4 @@ function fairyDustCursor(options) {
   init();
 }
 
-new fairyDustCursor({colors: ["#ff0000", "#00ff00", "#0000ff"]});
+new fairyDustCursor({colors: ["#ffffff", "#ffd4da", "#e3e3e3"]});
