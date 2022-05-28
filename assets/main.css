@@ -50,6 +50,8 @@ li {
   border: 3px dashed black;
   border-radius: 5px;
   overflow: hidden;
+  max-height: 56px;
+  min-width: 1674px;
 }
 
 #scroll-text {
