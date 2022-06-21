@@ -51,13 +51,12 @@ li {
   border-radius: 5px;
   overflow: hidden;
   max-height: 56px;
-  min-width: 1674px;
 }
 
 #scroll-text {
   text-align: right;
   font-size: 48px;
-
+  min-width: 1674px;
   /* animation properties */
   -moz-transform: translateX(100%);
   -webkit-transform: translateX(100%);
