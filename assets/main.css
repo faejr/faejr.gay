@@ -71,6 +71,7 @@ li {
   animation: album 4s ease 0s infinite normal forwards;
   transform: scale(0.8);
   margin-bottom: 15px;
+  max-height: 256px;
 }
 
 @keyframes album {
