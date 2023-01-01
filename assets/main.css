@@ -1,6 +1,6 @@
 html,
 body {
-  background: pink;
+  background: pink url("/assets/bg.png") center;
   cursor: url("/assets/cursor.png"), auto;
   height: 100%;
 }
@@ -17,12 +17,13 @@ main {
 }
 
 .links-container {
-  border: 5px dotted black;
+  border: 5px dotted pink;
   padding: 32px;
+  background-color: #ffd8de;
 }
 
 .links {
-    border: 2px dashed black;
+    border: 2px dashed pink;
     margin: 0 auto;
     padding: 0;
     max-width: 55%;
@@ -35,15 +36,15 @@ li {
 
 .red-bg {
   display: inline-block;
-  background: red;
+  background: #D30665;
 }
 .green-bg {
   display: inline-block;
-  background: green;
+  background: #ff7ab3;
 }
 .blue-bg {
   display: inline-block;
-  background: blue;
+  background: #ffabc5;
 }
 
 #scroll-container {
@@ -57,6 +58,7 @@ li {
   text-align: right;
   font-size: 48px;
   min-width: 1674px;
+  color: #fff;
   /* animation properties */
   -moz-transform: translateX(100%);
   -webkit-transform: translateX(100%);
@@ -65,6 +67,10 @@ li {
   -moz-animation: scroll-text-anim 15s linear infinite;
   -webkit-animation: scroll-text-anim 15s linear infinite;
   animation: scroll-text-anim 15s linear infinite;
+}
+
+#scroll-text > div {
+  padding: 8px;
 }
 
 .album {
