@@ -143,3 +143,44 @@ li {
     transform: translateX(-100%);
   }
 }
+
+.sleepy-zone-webring-container {
+  all: unset;
+
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #ffd8de;
+  border: 5px dotted pink;
+  margin-top: 1rem;
+}
+
+.sleepy-zone-webring-description {
+  margin-block-end: 0.5em;
+}
+
+.sleepy-zone-webring-container a {
+  text-decoration: none;
+  border-bottom: 1px solid hsl(275, 57%, 68%);
+}
+
+.sleepy-zone-webring-site-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sleepy-zone-webring-prev-site a::before {
+  content: "<- ";
+  margin-inline-end: 1ch;
+}
+
+.sleepy-zone-webring-next-site a::after {
+  content: " ->";
+  margin-inline-start: 1ch;
+}
