@@ -17,10 +17,6 @@
     <script src="/assets/js/cursor.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function (event) {
-        let months = 0;
-        let weeks = 0;
-        let days = 0;
-
         const stockholmTimezone = "Europe/Stockholm";
 
         const getDateTimeZone = (date, timeZone) => {
@@ -50,19 +46,16 @@
             0
           ).getDate();
         }
-        
+
         if (monthsDiff < 0) {
           years--;
           monthsDiff += 12;
         }
 
-        months = monthsDiff;
-        days = daysDiff;
-
         // Update span tags\
         document.getElementById("years").innerText = years;
-        document.getElementById("months").innerText = months;
-        document.getElementById("days").innerText = days;
+        document.getElementById("months").innerText = monthsDiff;
+        document.getElementById("days").innerText = daysDiff;
       });
     </script>
     <style>
