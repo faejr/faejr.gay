@@ -50,6 +50,11 @@
             0
           ).getDate();
         }
+        
+        if (monthsDiff < 0) {
+          years--;
+          monthsDiff += 12;
+        }
 
         months = monthsDiff;
         days = daysDiff;
