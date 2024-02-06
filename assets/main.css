@@ -1,8 +1,23 @@
+@font-face {
+	font-family: Virgil;
+	src:
+		url('/assets/Virgil.woff2') format('woff2');
+}
+
+:root {
+  --opacity: 0.7;
+  --border-color: #cfccb9;
+}
+
 html,
 body {
-  background: pink url("/assets/bg.png") center;
-  cursor: url("/assets/cursor.png"), auto;
+  cursor: url("/assets/cursor-pencil.png"), auto;
   height: 100%;
+  background-color: #fff8c9;
+  background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png");
+  /*background-image: url('/assets/notebook-dark.png');*/
+  font-family: Virgil;
+  color: #616161;
 }
 
 header,
@@ -11,66 +26,53 @@ main {
   margin-bottom: 32px;
 }
 
+header {
+  font-size: 6rem;
+  opacity: var(--opacity);
+}
+header img {
+   height: 6rem;
+   vertical-align: middle;
+}
+
+h2 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
 main {
     max-width: 500px;
     margin: 0 auto;
 }
 
 .links-container {
-  border: 5px dotted pink;
+  opacity: var(--opacity);
   padding: 32px;
-  background-color: #ffd8de;
+  /*background-color: #ffd8de;*/
+
+  border: 2px solid var(--border-color);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
 }
 
 .links {
-    border: 2px dashed pink;
+    /*border: 2px dashed pink;*/
     margin: 0 auto;
     padding: 0;
     max-width: 55%;
     font-size: 24px;
 }
 
+li:nth-child(even) a {
+  color: rgb(177, 60, 60);
+}
+
+a {
+  color: rgb(105, 105, 231);
+}
+
 li {
     list-style: none;
-}
-
-.red-bg {
-  display: inline-block;
-  background: #D30665;
-}
-.green-bg {
-  display: inline-block;
-  background: #ff7ab3;
-}
-.blue-bg {
-  display: inline-block;
-  background: #ffabc5;
-}
-
-#scroll-container {
-  border: 3px dashed black;
-  border-radius: 5px;
-  overflow: hidden;
-  max-height: 56px;
-}
-
-#scroll-text {
-  text-align: right;
-  font-size: 48px;
-  min-width: 1674px;
-  color: #fff;
-  /* animation properties */
-  -moz-transform: translateX(100%);
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
-
-  -moz-animation: scroll-text-anim 15s linear infinite;
-  -webkit-animation: scroll-text-anim 15s linear infinite;
-  animation: scroll-text-anim 15s linear infinite;
-}
-
-#scroll-text > div {
-  padding: 8px;
 }
 
 .album {
@@ -152,9 +154,12 @@ li {
 
   text-align: center;
   padding: 1rem 0;
-  background-color: #ffd8de;
-  border: 5px dotted pink;
+  /*background-color: #ffd8de;*/
   margin-top: 1rem;
+
+  border: 2px solid var(--border-color);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  opacity: var(--opacity);
 }
 
 .sleepy-zone-webring-description {

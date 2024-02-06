@@ -15,7 +15,7 @@ function fairyDustCursor(options) {
   const canvImages = [];
   let canvas, context;
 
-  const char = "*";
+  const char = "⏺";
 
   function init() {
     canvas = document.createElement("canvas");
@@ -36,7 +36,7 @@ function fairyDustCursor(options) {
       canvas.height = height;
     }
 
-    context.font = "21px serif";
+    context.font = "8px serif";
     context.textBaseline = "middle";
     context.textAlign = "center";
 
@@ -52,7 +52,7 @@ function fairyDustCursor(options) {
 
       bgContext.fillStyle = color;
       bgContext.textAlign = "center";
-      bgContext.font = "21px serif";
+      bgContext.font = "8px serif";
       bgContext.textBaseline = "middle";
       bgContext.fillText(
         char,
@@ -159,8 +159,8 @@ function fairyDustCursor(options) {
     this.initialLifeSpan = lifeSpan; //
     this.lifeSpan = lifeSpan; //ms
     this.velocity = {
-      x: (Math.random() < 0.5 ? -1 : 1) * (Math.random() / 2),
-      y: Math.random() * 0.7 + 0.9,
+      x: 0,
+      y: 0
     };
     this.position = { x: x, y: y };
     this.canv = canvasItem;
@@ -169,8 +169,6 @@ function fairyDustCursor(options) {
       this.position.x += this.velocity.x;
       this.position.y += this.velocity.y;
       this.lifeSpan--;
-
-      this.velocity.y += 0.02;
 
       const scale = Math.max(this.lifeSpan / this.initialLifeSpan, 0);
 
@@ -187,4 +185,4 @@ function fairyDustCursor(options) {
   init();
 }
 
-new fairyDustCursor({colors: ["#ffffff", "#ffd4da", "#e3e3e3"]});
+new fairyDustCursor({colors: ["#616161", "#2b2b2b", "#6e6d6c"]});

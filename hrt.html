@@ -1,176 +1,169 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>fae's HRT Clock</title>
+    <meta property="og:title" content="fae's HRT Clock" />
+    <meta
+      property="og:description"
+      content="A clock that shows how long it's been since I started HRT"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hrt.faejr.gay/" />
+    <meta property="og:site_name" content="fae jr." />
+    <meta property="og:locale" content="en_US" />
 
-<head>
-  <title>fae's HRT Clock</title>
-  <meta property="og:title" content="fae's HRT Clock" />
-  <meta property="og:description" content="A clock that shows how long it's been since I started HRT" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://hrt.faejr.gay/" />
-  <meta property="og:site_name" content="fae jr." />
-  <meta property="og:locale" content="en_US" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <script src="/assets/js/cursor.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function (event) {
+        const stockholmTimezone = "Europe/Stockholm";
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
-      let months = 0;
-      let weeks = 0;
-      let days = 0;
+        const getDateTimeZone = (date, timeZone) => {
+          const formatter = new Intl.DateTimeFormat("en-US", {
+            timeZone: timeZone,
+          });
+          const dateString = formatter.format(date);
+          return new Date(dateString);
+        };
 
-      const stockholmTimezone = 'Europe/Stockholm';
+        const targetDate = getDateTimeZone(
+          new Date("2021-05-13"),
+          stockholmTimezone
+        );
+        const currentDate = getDateTimeZone(new Date(), stockholmTimezone);
 
-      const getDateTimeZone = (date, timeZone) => {
-        const formatter = new Intl.DateTimeFormat('en-US', {
-          timeZone: timeZone,
-        });
-        const dateString = formatter.format(date);
-        return new Date(dateString);
-      };
+        // Calculate the difference in years and months
+        let years = currentDate.getFullYear() - targetDate.getFullYear();
+        let monthsDiff = currentDate.getMonth() - targetDate.getMonth();
+        let daysDiff = currentDate.getDate() - targetDate.getDate();
 
-      const targetDate = getDateTimeZone(new Date('2021-05-13'), stockholmTimezone);
-      const currentDate = getDateTimeZone(new Date(), stockholmTimezone);
+        if (daysDiff < 0) {
+          monthsDiff--;
+          daysDiff += new Date(
+            currentDate.getFullYear(),
+            currentDate.getMonth(),
+            0
+          ).getDate();
+        }
 
-      // Calculate the difference in years and months
-      let yearsDiff = currentDate.getFullYear() - targetDate.getFullYear();
-      let monthsDiff = currentDate.getMonth() - targetDate.getMonth();
-      let daysDiff = currentDate.getDate() - targetDate.getDate();
+        if (monthsDiff < 0) {
+          years--;
+          monthsDiff += 12;
+        }
 
-      if (daysDiff < 0) {
-        monthsDiff--;
-        daysDiff += new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+        // Update span tags\
+        document.getElementById("years").innerText = years;
+        document.getElementById("months").innerText = monthsDiff;
+        document.getElementById("days").innerText = daysDiff;
+      });
+    </script>
+    <style>
+      body {
+        background: linear-gradient(
+          #00d2ff 20%,
+          #ffa6b9 0 40%,
+          white 0 60%,
+          #ffa6b9 0 80%,
+          #00d2ff 0
+        );
       }
 
-      if (monthsDiff < 0) {
-        yearsDiff--;
-        monthsDiff += 12;
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
       }
 
-      months = yearsDiff * 12 + monthsDiff;
+      .content {
+        text-align: center;
+        padding: 20px;
+      }
 
-      // Calculate weeks and days from remaining days
-      weeks = Math.floor(daysDiff / 7);
-      days = daysDiff - weeks * 7;
+      .clock {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
+        background-color: rgba(0, 0, 0, 0.9);
+        border-radius: 10px;
+      }
 
-      // Update span tags
-      document.getElementById("months").innerText = months;
-      document.getElementById("weeks").innerText = weeks;
-      document.getElementById("days").innerText = days;
-    });
-
-
-  </script>
-  <style>
-    body {
-      font-family: "Roboto", sans-serif;
-      background: linear-gradient(#00d2ff 20%, #ffa6b9 0 40%, white 0 60%, #ffa6b9 0 80%, #00d2ff 0)
-    }
-
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .content {
-      text-align: center;
-      padding: 20px;
-    }
-
-    .clock {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 1rem;
-      background-color: rgba(0, 0, 0, 0.9);
-      border-radius: 10px;
-    }
-
-    .clock-title {
-      color: #ffffff;
-      font-size: 20px;
-      line-height: 1.5;
-    }
-
-    .clock-date {
-      display: flex;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-
-    .clock-date>div {
-      color: #ffffff;
-      margin-right: 2rem;
-    }
-
-    .clock-date>div>span {
-      font-size: 40px;
-      display: block;
-    }
-
-    @media screen and (max-width: 800px) {
       .clock-title {
-        font-size: 18px;
-        line-height: 1.3;
-      }
-
-      .clock-date>div {
-        margin-right: 1rem;
-      }
-
-      .clock-date>div>span {
-        font-size: 30px;
-      }
-    }
-
-    /* Media queries for screens smaller than 600px */
-    @media screen and (max-width: 600px) {
-      .clock-title {
-        font-size: 16px;
-        line-height: 1.2;
-      }
-
-      .clock-date>div {
-        margin-right: 0.5rem;
-      }
-
-      .clock-date>div>span {
+        color: #ffffff;
         font-size: 20px;
+        line-height: 1.5;
       }
-    }
-  </style>
 
+      .clock-date {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+      }
 
-</head>
+      .clock-date > div {
+        color: #ffffff;
+        margin: 0 1rem;
+      }
 
-<body>
-  <div class="container">
-    <div class="content">
-      <h1>HRT Clock</h1>
-      <div class="clock">
-        <p class="clock-title">
-          How long it's been since I started HRT on May 13th, 2021
-        </p>
-        <div class="clock-date">
-          <div class="months">
-            <span id="months"></span> <br />
-            Months
-          </div>
-          <div class="weeks">
-            <span id="weeks"></span> <br />
-            Weeks
-          </div>
-          <div class="days">
-            <span id="days"></span> <br />
-            Days
+      .clock-date > div > span {
+        font-size: 40px;
+        display: block;
+      }
+
+      @media screen and (max-width: 800px) {
+        .clock-title {
+          font-size: 18px;
+          line-height: 1.3;
+        }
+
+        .clock-date > div > span {
+          font-size: 30px;
+        }
+      }
+
+      /* Media queries for screens smaller than 600px */
+      @media screen and (max-width: 600px) {
+        .clock-title {
+          font-size: 16px;
+          line-height: 1.2;
+        }
+
+        .clock-date > div {
+          margin-right: 0.5rem;
+        }
+
+        .clock-date > div > span {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>HRT Clock</h1>
+        <div class="clock">
+          <p class="clock-title">
+            How long it's been since I started HRT on May 13th, 2021
+          </p>
+          <div class="clock-date">
+            <div class="years">
+              <span id="years"></span> <br />
+              Years
+            </div>
+            <div class="months">
+              <span id="months"></span> <br />
+              Months
+            </div>
+            <div class="days">
+              <span id="days"></span> <br />
+              Days
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
