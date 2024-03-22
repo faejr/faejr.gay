@@ -6,18 +6,18 @@
 
 :root {
   --opacity: 0.7;
-  --border-color: #cfccb9;
+  --border-color: #c897d3;
 }
 
 html,
 body {
   cursor: url("/assets/cursor-pencil.png"), auto;
   height: 100%;
-  background-color: #fff8c9;
-  background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png");
-  /*background-image: url('/assets/notebook-dark.png');*/
+  background-color: #febfca;
+  /*background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png");*/
+  background-image: url('/assets/notebook-dark.png');
   font-family: Virgil;
-  color: #616161;
+  color: #272727;
 }
 
 header,
@@ -26,13 +26,12 @@ main {
   margin-bottom: 32px;
 }
 
-header {
+h1 {
   font-size: 6rem;
   opacity: var(--opacity);
-}
-header img {
-   height: 6rem;
-   vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 h2 {
@@ -59,7 +58,7 @@ main {
     /*border: 2px dashed pink;*/
     margin: 0 auto;
     padding: 0;
-    max-width: 55%;
+    max-width: 65%;
     font-size: 24px;
 }
 
