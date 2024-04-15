@@ -11,6 +11,7 @@
     <meta property="og:url" content="https://hrt.faejr.gay/" />
     <meta property="og:site_name" content="fae jr." />
     <meta property="og:locale" content="en_US" />
+    <meta charset="utf-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -52,11 +53,31 @@
           monthsDiff += 12;
         }
 
-        // Update span tags\
-        document.getElementById("years").innerText = years;
-        document.getElementById("months").innerText = monthsDiff;
-        document.getElementById("days").innerText = daysDiff;
+        // Update span tags
+        updateElement(document.getElementById("years"), years)
+          .then(() =>
+            updateElement(document.getElementById("months"), monthsDiff)
+          )
+          .then(() => updateElement(document.getElementById("days"), daysDiff));
+        test(totalDays);
       });
+
+      async function updateElement(el, num) {
+        var currentNum = 0;
+        while (currentNum < num) {
+          currentNum++;
+          await updatePromise(el, currentNum);
+        }
+      }
+
+      function timeoutPromise(el, currentNum) {
+        return new Promise((resolve) => {
+          setTimeout(function () {
+            el.innerText = currentNum;
+            resolve();
+          }, 10);
+        });
+      }
     </script>
     <style>
       body {
@@ -150,15 +171,15 @@
           </p>
           <div class="clock-date">
             <div class="years">
-              <span id="years"></span> <br />
+              <span id="years">0</span> <br />
               Years
             </div>
             <div class="months">
-              <span id="months"></span> <br />
+              <span id="months">0</span> <br />
               Months
             </div>
             <div class="days">
-              <span id="days"></span> <br />
+              <span id="days">0</span> <br />
               Days
             </div>
           </div>
