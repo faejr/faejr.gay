@@ -66,7 +66,7 @@
         var currentNum = 0;
         while (currentNum < num) {
           currentNum++;
-          await updatePromise(el, currentNum);
+          await timeoutPromise(el, currentNum);
         }
       }
 
