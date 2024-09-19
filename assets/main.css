@@ -5,19 +5,22 @@
 }
 
 :root {
-  --opacity: 0.7;
-  --border-color: #c897d3;
+  --opacity: 1;
+  --border-color: #d2d2d2;
 }
 
 html,
 body {
-  cursor: url("/assets/cursor-pencil.png"), auto;
+  cursor: url("/assets/sunflower.png"), auto;
   height: 100%;
-  background-color: #febfca;
-  /*background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png");*/
-  background-image: url('/assets/notebook-dark.png');
+  background-color: #ffffff;
+  background-image: url('/assets/test.jpg');
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: Virgil;
-  color: #272727;
+  color: #f0f0f0;
 }
 
 header,
@@ -48,14 +51,12 @@ main {
 .links-container {
   opacity: var(--opacity);
   padding: 32px;
-  /*background-color: #ffd8de;*/
 
   border: 2px solid var(--border-color);
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
 }
 
 .links {
-    /*border: 2px dashed pink;*/
     margin: 0 auto;
     padding: 0;
     max-width: 65%;
@@ -63,11 +64,11 @@ main {
 }
 
 li:nth-child(even) a {
-  color: rgb(177, 60, 60);
+  color: rgb(173, 173, 173);
 }
 
 a {
-  color: rgb(105, 105, 231);
+  color: rgb(221, 221, 221);
 }
 
 li {
@@ -153,7 +154,6 @@ li {
 
   text-align: center;
   padding: 1rem 0;
-  /*background-color: #ffd8de;*/
   margin-top: 1rem;
 
   border: 2px solid var(--border-color);
