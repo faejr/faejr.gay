@@ -54,30 +54,10 @@
         }
 
         // Update span tags
-        updateElement(document.getElementById("years"), years)
-          .then(() =>
-            updateElement(document.getElementById("months"), monthsDiff)
-          )
-          .then(() => updateElement(document.getElementById("days"), daysDiff));
-        test(totalDays);
+        document.getElementById("years").innerText = years;
+        document.getElementById("months").innerText = monthsDiff;
+        document.getElementById("days").innerText = daysDiff;
       });
-
-      async function updateElement(el, num) {
-        var currentNum = 0;
-        while (currentNum < num) {
-          currentNum++;
-          await updatePromise(el, currentNum);
-        }
-      }
-
-      function timeoutPromise(el, currentNum) {
-        return new Promise((resolve) => {
-          setTimeout(function () {
-            el.innerText = currentNum;
-            resolve();
-          }, 10);
-        });
-      }
     </script>
     <style>
       body {
