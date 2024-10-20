@@ -1,26 +1,21 @@
 @font-face {
-	font-family: Virgil;
-	src:
-		url('/assets/Virgil.woff2') format('woff2');
+  font-family: Virgil;
+  src: url("/assets/Virgil.woff2") format("woff2");
 }
 
 :root {
-  --opacity: 1;
+  --opacity: 0.9;
   --border-color: #d2d2d2;
 }
 
 html,
 body {
-  cursor: url("/assets/sunflower.png"), auto;
+  cursor: url("/assets/sunflower-inv.png"), auto;
   height: 100%;
   background-color: #ffffff;
-  background-image: url('/assets/test.jpg');
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-image: url("/assets/autumnleavemove.gif");
   font-family: Virgil;
-  color: #f0f0f0;
+  color: #383838;
 }
 
 header,
@@ -33,7 +28,7 @@ h1 {
   font-size: 6rem;
   opacity: var(--opacity);
   margin: 0;
-  padding: 0;
+  padding: 1rem 0;
   text-align: center;
 }
 
@@ -44,11 +39,12 @@ h2 {
 }
 
 main {
-    max-width: 500px;
-    margin: 0 auto;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .links-container {
+  background: #c8741c;
   opacity: var(--opacity);
   padding: 32px;
 
@@ -57,22 +53,22 @@ main {
 }
 
 .links {
-    margin: 0 auto;
-    padding: 0;
-    max-width: 65%;
-    font-size: 24px;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 65%;
+  font-size: 24px;
 }
 
 li:nth-child(even) a {
-  color: rgb(173, 173, 173);
+  color: #273642;
 }
 
 a {
-  color: rgb(221, 221, 221);
+  color: #3c5263;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 .album {
@@ -83,35 +79,35 @@ li {
 }
 
 @keyframes album {
-	0%,
-	100% {
-		transform: scale(0.8) rotate(0deg);
-		transform-origin: 50% 100%;
-	}
+  0%,
+  100% {
+    transform: scale(0.8) rotate(0deg);
+    transform-origin: 50% 100%;
+  }
 
-	10% {
-		transform: scale(0.8) rotate(2deg);
-	}
+  10% {
+    transform: scale(0.8) rotate(2deg);
+  }
 
-	20%,
-	40%,
-	60% {
-		transform: scale(0.8) rotate(-4deg);
-	}
+  20%,
+  40%,
+  60% {
+    transform: scale(0.8) rotate(-4deg);
+  }
 
-	30%,
-	50%,
-	70% {
-		transform: scale(0.8) rotate(4deg);
-	}
+  30%,
+  50%,
+  70% {
+    transform: scale(0.8) rotate(4deg);
+  }
 
-	80% {
-		transform: scale(0.8) rotate(-2deg);
-	}
+  80% {
+    transform: scale(0.8) rotate(-2deg);
+  }
 
-	90% {
-		transform: scale(0.8) rotate(2deg);
-	}
+  90% {
+    transform: scale(0.8) rotate(2deg);
+  }
 }
 /* for Firefox */
 @-moz-keyframes scroll-text-anim {
